@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.ECommerce.SharingResource;
 import com.company.WordCount.ThroughputHttpServer;
 import com.company.images.PixelColor;
 
@@ -12,6 +13,6 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
 
-        ThroughputHttpServer.init();
+        SharingResource.init();
     }
 }
