@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.WordCount.ThroughputHttpServer;
 import com.company.images.PixelColor;
 
 import java.io.IOException;
@@ -11,6 +12,6 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
 
-        PixelColor.recolorImg();
+        ThroughputHttpServer.init();
     }
 }

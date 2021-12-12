@@ -121,9 +121,9 @@ public class PixelColor {
         BufferedImage resultImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), BufferedImage.TYPE_INT_RGB);
 
         long startTime = System.currentTimeMillis();
-        recolorSingleThreaded(originalImage, resultImage);
-        int numberOfThreads = 1;
-//        recolorMultithreaded(originalImage, resultImage, numberOfThreads);
+//        recolorSingleThreaded(originalImage, resultImage);
+        int numberOfThreads = 3;
+        recolorMultithreaded(originalImage, resultImage, numberOfThreads);
         long endTime = System.currentTimeMillis();
 
         long duration = endTime - startTime;
@@ -131,7 +131,7 @@ public class PixelColor {
         File outputFile = new File(DESTINATION_FILE);
         ImageIO.write(resultImage, "jpg", outputFile);
 
-        System.out.println(String.valueOf(duration));
+        System.out.println("Duration of the run is : "+String.valueOf(duration));
 
     }
 
