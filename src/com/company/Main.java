@@ -1,6 +1,13 @@
 package com.company;
 
+import com.company.Atomic.BusinessLogic;
+import com.company.Atomic.Metrics;
+import com.company.Atomic.MetricsPrinter;
+import com.company.DeadLock.Intersection;
+import com.company.DeadLock.TrainA;
+import com.company.DeadLock.TrainB;
 import com.company.ECommerce.SharingResource;
+import com.company.SharedC.SharedClass;
 import com.company.WordCount.ThroughputHttpServer;
 import com.company.images.PixelColor;
 
@@ -13,6 +20,12 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
 
-        SharingResource.init();
+
+        Intersection intersection = new Intersection();
+        Thread trainAThread = new Thread(new TrainA(intersection));
+        Thread trainBThread = new Thread(new TrainB(intersection));
+
+        trainAThread.start();
+        trainBThread.start();
     }
 }

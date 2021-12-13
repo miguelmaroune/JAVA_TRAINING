@@ -2,16 +2,24 @@ package com.company.ECommerce;
 
 public class InventoryCounter {
     private int items = 0;
+    Object lock = new Object();
+    public  void increment() {
+        synchronized (this.lock)
+        {
+            items++;
+        }
 
-    public void increment() {
-        items++;
     }
 
-    public void decrement() {
-        items--;
+    public  void decrement()
+    {
+        synchronized (this.lock) {
+            items--;
+        }
     }
 
-    public int getItems() {
-        return items;
+    public  int  getItems() {
+        synchronized (this.lock) {
+            return items;}
     }
 }
