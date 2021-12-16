@@ -11,14 +11,7 @@ public class IncrementingThread extends Thread{
     @Override
     public void run() {
         for (int i = 0; i < 10000; i++) {
-            try {
-                inventoryCounter.wait();
-            } catch (InterruptedException e) {
-//                e.printStackTrace();
-            }
             inventoryCounter.increment();
-
-            inventoryCounter.notifyAll();
         }
     }
 

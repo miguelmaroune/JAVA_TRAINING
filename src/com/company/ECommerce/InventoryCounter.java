@@ -1,25 +1,19 @@
 package com.company.ECommerce;
 
-public class InventoryCounter {
-    private int items = 0;
-    Object lock = new Object();
-    public  void increment() {
-        synchronized (this.lock)
-        {
-            items++;
-        }
+import java.util.concurrent.atomic.AtomicInteger;
 
+public class InventoryCounter {//We dont need the syncronize key word because the items variable is atomic
+    private AtomicInteger items = new AtomicInteger(0);
+
+    public void increment() {
+        items.incrementAndGet();
     }
 
-    public  void decrement()
-    {
-        synchronized (this.lock) {
-            items--;
-        }
+    public void decrement() {
+        items.decrementAndGet();
     }
 
-    public  int  getItems() {
-        synchronized (this.lock) {
-            return items;}
+    public int getItems() {
+        return items.get();
     }
 }

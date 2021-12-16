@@ -7,7 +7,10 @@ import com.company.DeadLock.Intersection;
 import com.company.DeadLock.TrainA;
 import com.company.DeadLock.TrainB;
 import com.company.ECommerce.SharingResource;
+import com.company.ObjectVariables.MatricesGenerator;
 import com.company.ReentrantLock.RMain;
+import com.company.Semaphore.Barrier;
+import com.company.Semaphore.CoordinatedWorkRunner;
 import com.company.SharedC.SharedClass;
 import com.company.WordCount.ThroughputHttpServer;
 import com.company.images.PixelColor;
@@ -21,6 +24,6 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
 
-        RMain.Reentrantmain();
+        SharingResource.init();
     }
 }
